@@ -15,9 +15,6 @@ class CustomerOrderController extends Controller
         $user = Auth::user();
 
         $orders = Order::where('user_id', $user->id)->with('orderItems.product')->latest()->paginate(10);
-
-
-
         return view('customer.orders.index', compact('orders'));
 
     }
