@@ -819,7 +819,7 @@
                             <div class="space-y-6">
                                 <div
                                     class="group relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                    <img src="{{ asset('storage/products/jacket2.jpg') }}" alt="Fashion"
+                                    <img src="{{ asset('Storage/products/jacket2.jpg') }}" alt="Fashion"
                                         class="w-full h-48 object-cover">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -827,7 +827,7 @@
                                 </div>
                                 <div
                                     class="group relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                    <img src="{{ asset('storage/products/jacket1.jpg') }}" alt="Fashion"
+                                    <img src="{{ asset('images/products/jacket1.jpg') }}" alt="Fashion"
                                         class="w-full h-64 object-cover">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -837,7 +837,7 @@
                             <div class="space-y-6 pt-12">
                                 <div
                                     class="group relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                    <img src="{{ asset('storage/products/leatherjacket.jpg') }}" alt="Fashion"
+                                    <img src="{{ asset('images/products/leatherjacket.jpg') }}" alt="Fashion"
                                         class="w-full h-64 object-cover">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -845,7 +845,7 @@
                                 </div>
                                 <div
                                     class="group relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                    <img src="{{ asset('storage/products/jacket3.jpg') }}" alt="Fashion"
+                                    <img src="{{ asset('images/products/jacket3.jpg') }}" alt="Fashion"
                                         class="w-full h-48 object-cover">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -996,9 +996,10 @@
                 <a href="#"
                     class="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="aspect-w-1 aspect-h-1">
-                        <img src="{{ asset('storage/products/jacket1.jpg') }}" alt="Clothing"
+                        <img src="{{ asset('images/products/jacket1.jpg') }}" alt="Clothing"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         <div
+
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300">
                         </div>
                         <div class="absolute inset-0 flex flex-col justify-end p-6">
@@ -1026,7 +1027,7 @@
                 <a href="#"
                     class="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="aspect-w-1 aspect-h-1">
-                        <img src="{{ asset('storage/products/loafers.jpg') }}" alt="Shoes"
+                        <img src="{{ asset('images/products/loafers.jpg') }}" alt="Shoes"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300">
@@ -1056,7 +1057,7 @@
                 <a href="#"
                     class="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="aspect-w-1 aspect-h-1">
-                        <img src="{{ asset('storage/products/gelang.jpg') }}" alt="Accessories"
+                        <img src="{{ asset('images/products/gelang.jpg') }}" alt="Accessories"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300">
@@ -1512,7 +1513,7 @@
                                             <!-- Product Image - Larger and more prominent -->
                                             <div class="w-full md:w-1/2">
                                                 <div class="relative aspect-square">
-                                                    <img src="/storage/products/${data.image}" 
+                                                    <img src="/images/products/${data.image}" 
                                                          alt="${data.name}"
                                                          class="w-full h-full object-cover">
                                                 </div>
@@ -1739,26 +1740,29 @@
     <!-- Tambahkan script untuk konfirmasi logout -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function confirmLogout() {
+         function confirmLogout() {
             Swal.fire({
-                title: 'Logout Confirmation',
-                text: "Are you sure you want to logout?",
+                title: 'Are you sure?',
+                text: "You will be logged out from your account",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, logout',
-                cancelButtonText: 'Cancel',
-                reverseButtons: true,
-                customClass: {
-                    confirmButton: 'swal2-confirm',
-                    cancelButton: 'swal2-cancel'
-                },
-                background: '#ffffff',
-                iconColor: '#ef4444',
-                confirmButtonColor: '#ef4444',
-                cancelButtonColor: '#4b5563'
+                confirmButtonColor: '#0f172a',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('logout-form').submit();
+                    // Show loading state
+                    Swal.fire({
+                        title: 'Logging out...',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        willOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+
+                    // Submit logout form
+                    document.querySelector('form[action="{{ route('logout') }}"]').submit();
                 }
             });
         }
