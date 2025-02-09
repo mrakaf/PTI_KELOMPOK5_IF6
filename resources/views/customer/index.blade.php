@@ -819,7 +819,7 @@
                             <div class="space-y-6">
                                 <div
                                     class="group relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                    <img src="{{ asset('Storage/products/jacket2.jpg') }}" alt="Fashion"
+                                    <img src="{{ asset('images/products/jacket2.jpg') }}" alt="Fashion"
                                         class="w-full h-48 object-cover">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
