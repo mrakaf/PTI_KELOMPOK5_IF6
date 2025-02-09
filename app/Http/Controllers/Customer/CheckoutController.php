@@ -163,14 +163,12 @@ class CheckoutController extends Controller
 
             DB::commit();
 
-            return view('customer.checkout.payment', [
-                'snapToken' => $snapToken,
-                'order' => $order
-            ]);
+            return redirect()->route('index');
         } catch (\Exception $e) {
             DB::rollback();
             Log::error('Checkout Process Error: ' . $e->getMessage());
             Log::error('Stack trace: ' . $e->getTraceAsString());
+
 
             return redirect()->back()
                 ->with('error', 'Failed to process order. Please try again.');
