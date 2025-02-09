@@ -33,7 +33,7 @@ class CheckoutController extends Controller
             $addresses = auth()->user()->addresses;
 
             if ($carts->isEmpty()) {
-                return redirect()->route('orders')->with('error', 'Please select items to checkout');
+                return redirect()->route('customer.orders')->with('error', 'Please select items to checkout');
             }
 
             $total = $carts->sum(function ($cart) {
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
             });
 
             if ($total <= 0) {
-                return redirect()->route('orders')->with('error', 'Invalid total amount');
+                return redirect()->route('customer.orders')->with('error', 'Invalid total amount');
             }
 
             $items = [];
@@ -81,7 +81,7 @@ class CheckoutController extends Controller
             return view('customer.checkout.index', compact('carts', 'addresses', 'snapToken', 'total'));
         } catch (\Exception $e) {
             Log::error('Checkout Index Error: ' . $e->getMessage());
-            return redirect()->route('orders')->with('error', 'Failed to initialize checkout. Please try again.');
+            return redirect()->route('customer.orders')->with('error', 'Failed to initialize checkout. Please try again.');
         }
     }
 
@@ -163,7 +163,7 @@ class CheckoutController extends Controller
 
             DB::commit();
 
-            return redirect()->route('orders');
+            return redirect()->route('customer.orders');
         } catch (\Exception $e) {
             DB::rollback();
             Log::error('Checkout Process Error: ' . $e->getMessage());
