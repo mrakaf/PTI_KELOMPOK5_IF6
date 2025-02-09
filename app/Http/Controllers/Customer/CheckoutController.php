@@ -163,7 +163,7 @@ class CheckoutController extends Controller
 
             DB::commit();
 
-            return redirect()->route('index');
+            return redirect()->route('orders');
         } catch (\Exception $e) {
             DB::rollback();
             Log::error('Checkout Process Error: ' . $e->getMessage());
