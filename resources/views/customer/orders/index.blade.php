@@ -22,8 +22,8 @@
                                     <div class="text-sm text-gray-600 mb-2">Total: Rp
                                         {{ number_format($order->total_amount, 0, ',', '.') }}</div>
                                     <div class="text-sm text-gray-600 mb-2">Status: {{ ucfirst($order->status) }}</div>
-                                    <div class="text-sm text-gray-600 mb-2">Payment Status:
-                                        {{ ucfirst($order->payment_status) }}</div>
+                                    <!-- <div class="text-sm text-gray-600 mb-2">Payment Status:
+                                        {{ ucfirst($order->payment_status) }}</div> -->
                                     <div class="text-sm text-gray-600 mb-2">Items:</div>
                                     <ul class="list-disc list-inside text-sm text-gray-600">
                                         @if ($order->orderItems)
