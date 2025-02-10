@@ -570,7 +570,21 @@
                             <h1 class="text-2xl font-bold text-white">RobbStark Shop</h1>
                         </a>
 
-                       
+                        <!-- Search Bar
+                        {{-- <div class="hidden md:block flex-1 max-w-lg">
+                            <div class="relative">
+                                <input type="text" placeholder="Search products..."
+                                    class="w-full bg-white/10 border border-white/20 rounded-lg pl-10 pr-4 py-2 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50">
+                                <div class="absolute left-3 top-2.5">
+                                    <svg class="w-5 h-5 text-white/70" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}} -->
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
