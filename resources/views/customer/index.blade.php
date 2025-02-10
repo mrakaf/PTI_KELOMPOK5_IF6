@@ -543,28 +543,7 @@
             transition: all 0.15s ease;
             box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
         }
-
-        <!-- Update/Add to existing style section -->
-<style>
-@keyframes shine {
-    from {
-        transform: translateX(-100%) skew(-45deg);
-    }
-    to {
-        transform: translateX(300%) skew(-45deg);
-    }
-}
-
-.animate-shine {
-    animation: shine 2s ease-in-out infinite;
-}
-
-/* Optional: Add smooth font rendering */
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-</style>
+        
     </style>
 
     <link
@@ -1215,33 +1194,28 @@
                             </div>
 
                             <!-- Action Buttons -->
-<div class="flex items-center gap-2">
-    <button onclick="addToCart({{ $product->id }})"
-        class="w-full bg-gradient-to-r from-[#1a2537] via-[#2f3d50] to-[#1a2537] text-white px-6 py-3 rounded-lg
-               transform transition-all duration-300 ease-in-out
-               hover:scale-[1.02] hover:shadow-[0_8px_25px_-8px_rgba(47,61,80,0.6)] 
-               hover:from-[#2f3d50] hover:via-[#3a4a61] hover:to-[#2f3d50]
-               active:scale-[0.98]
-               focus:outline-none focus:ring-2 focus:ring-[#2f3d50]/50 focus:ring-offset-2
-               group relative overflow-hidden backdrop-blur-sm">
-        <!-- Shine Effect -->
-        <div class="absolute inset-0 w-[40%] bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                    skew-x-[45deg] group-hover:animate-shine hidden group-hover:block transition-all duration-500"></div>
-        <!-- Glass Effect -->
-        <div class="absolute inset-0 rounded-lg bg-white/5 group-hover:bg-white/10 transition-all duration-300"></div>
-        <!-- Button Content -->
-        <span class="relative flex items-center justify-center space-x-2">
-            <svg class="w-5 h-5 transform group-hover:scale-110 transition-transform duration-300" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-            </svg>
-            <span class="font-medium tracking-wider group-hover:tracking-widest transition-all duration-300">
-                Add to Cart
-            </span>
-        </span>
-    </button>
-</div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="addToCart({{ $product->id }})"
+                                    class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
+                                    <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                    </svg>
+                                    <span class="font-medium">Add to Cart</span>
+                                </button>
+                                {{-- 
+                                <button onclick="toggleWishlist({{ $product->id }})"
+                                    data-wishlist-product="{{ $product->id }}"
+                                    class="p-3 text-gray-600 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-xl transition-all duration-300 transform hover:scale-105">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button> --}}
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
 
